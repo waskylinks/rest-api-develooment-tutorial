@@ -14,6 +14,7 @@ let books = [
 }];
 
 // intro route
+
 app.get('/', (req, res) => {
     res.json({
         message: 'Welcome to our bookstore API'
@@ -21,11 +22,13 @@ app.get('/', (req, res) => {
 });
 
 //get all books
+
 app.get('/get', (req, res) => {
     res.json(books);
 });
 
 //get single book
+
 app.get('/get/:id', (req, res) => {
     const book = books.find(item => item.id == req.params.id)
     if(book) {
@@ -69,7 +72,8 @@ app.put('/update/:id', (req, res) => {
     }
 });
 
-//delete request
+//delete a book
+
 app.delete('/delete/:id', (req, res) => {
     const bookIndex = books.findIndex(bookItem => bookItem.id == req.params.id);
     if(bookIndex !== -1) {
